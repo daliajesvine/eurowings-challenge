@@ -72,7 +72,7 @@ class Gallery extends React.Component {
       }
       else {
         return (
-        <Link to= {{pathname:"/imagedetail", state: {imageData: imageData} }}>
+        <Link to= {{pathname:"/imagedetail", state: {imageData: imageData.images} }}>
           <figure>
             <img id="photos" className='images' src={link} alt="This is not available" />
             <figcaption> {description}</figcaption>
@@ -93,7 +93,7 @@ class Gallery extends React.Component {
     else {
       let images = this.state.imageData.map((data, i) => (
         data.images ? this.getImageHtml(data) : 
-      <Link to= {{pathname:"/imagedetail", state: {imageData: data.images} }}>
+      <Link to= {{pathname:"/imagedetail", state: {imageData: [data]} }}>
        <figure>
         <img id="photos" src={data.link} alt="This is not available" />
         <figcaption>{data.description? data.description: data.title}</figcaption>

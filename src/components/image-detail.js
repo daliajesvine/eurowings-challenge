@@ -27,14 +27,14 @@ class ImageDetail extends React.Component {
         if (!this.image)
             return null;
         let contents = [];
-        let images = this.image.imageData.images.map((data, i) => (
+        console.log("this.image",this.image)
+        let images = this.image.imageData.map((data, i) => (
             data ? this.getImageHtml(data) :
                 <figure>
                     <img src={data.link} alt="This is not available" />
                     <figcaption>{data.description ? data.description : data.title}</figcaption>
                 </figure>
         ));
-
         contents = images.map((image, i) => {
             return (<div key={i}>{image}</div>)
         });
@@ -46,12 +46,12 @@ class ImageDetail extends React.Component {
                 </section>
                 <div>
                     <FontAwesome className="fas fa-thumbs-up" />
-                    <span className="color">{this.image.imageData.ups}</span>
+                    <span className="color">{this.image.imageData ? this.image.imageData.ups : '0'}</span>
 
                     <FontAwesome className="fas fa-thumbs-down" />
-                    <span className="color">{this.image.imageData.downs}</span>
+                    <span className="color">{this.image.imageData ? this.image.imageData.downs : '0'}</span>
                     <FontAwesome className="fas fa-eye" />
-                    <span className="color">{this.image.imageData.views} views</span>
+                    <span className="color">{this.image.imageData ? this.image.imageData.views : '0'} views</span>
                 </div>
             </div>
 

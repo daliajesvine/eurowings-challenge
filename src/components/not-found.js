@@ -6,7 +6,7 @@ class NotFound extends React.Component {
     render() {
         return (
             <div> 
-                <img src={image} alt='This page is not yet developed'/>
+                <img className="page-not-found" src={image} alt='This page is not yet developed'/>
             </div>
         );
     }
